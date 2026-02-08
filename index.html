@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICRTET-2026 | International Conference on Recent Trends in Engineering and Technology</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1241235981312692');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1241235981312692&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #303f9f;
+            --accent-color: #fbc02d;
+            --light-color: #f8f9fa;
+            --dark-color: #212121;
+            --highlight-color: #ff5722;
+            --text-color: #333;
+            --light-text: #fffbfb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--highlight-color);
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .date-badge {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 25, 80, 0.85), rgba(10, 25, 80, 0.85)), 
+            url('https://images.unsplash.com/photo-1511551203424-3abc3e45f73f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--highlight-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .organizer-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .organizer-badge {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .organizer-badge h4 {
+            margin-bottom: 5px;
+            color: var(--highlight-color);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--highlight-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff3d00;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid var(--highlight-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 153, 7, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 60px;
+            height: 4px;
+            background-color: var(--highlight-color);
+            transform: translateX(-50%);
+        }
+
+        /* Highlights Section */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .highlight-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--accent-color);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .highlight-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* Dates & Registration */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .date-card {
+            background-color: white;
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .date-card.important {
+            border-left: 5px solid #ff5e62;
+            background-color: #fde8e3;
+        }
+
+        .date-label {
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .date-value {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            font-weight: bold;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .price-table td {
+            font-weight: bold;
+        }
+
+        .price-table td:first-child {
+            color: var(--primary-color);
+        }
+
+        /* Registration Details */
+        .registration-details {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 40px;
+        }
+
+        .payment-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .payment-method {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .qr-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        #qrcode {
+            width: 150px;
+            height: 150px;
+            margin: auto;
+        }
+
+        /* Committees */
+        .committee-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: none;
+        }
+
+        .tab-btn {
+            padding: 12px 30px;
+            background: white;
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .tab-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .committee-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .committee-member {
+            background-color: white;
+            padding: 20px 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .committee-member:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .committee-member h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .committee-member p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+            margin: 3px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--highlight-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .contact-info li {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.8rem; }
+            .header-container { flex-direction: column; text-align: center; gap: 15px; }
+            .logo-section { flex-direction: column; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>ICRTET-2026</h1>
+                    <span>International Conference on Recent Trends in Engineering and Technology</span>
+                </div>
+            </div>
+            <div class="date-badge">
+                <i class="fas fa-calendar-alt"></i> March 25-26, 2026
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Innovating for the Future</h2>
+            <p>Organized by Gojan School of Business and Technology, Chennai in collaboration with VIPS.Tech, Chennai. A key global platform for researchers, academicians, industry professionals, and scholars to discuss the latest advancements in engineering and technology.</p>
+            
+            <div class="organizer-badges">
+                <div class="organizer-badge">
+                    <h4>Organized by</h4>
+                    <p>Gojan School of Business and Technology</p>
+                </div>
+                
+                <div class="organizer-badge">
+                    <h4>Associate Partner</h4>
+                    <p>VIPS.Tech</p>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#registration" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> Register Now
+                </a>
+                <button id="submitPaperBtn" class="btn btn-secondary">
+                    <i class="fas fa-paper-plane"></i> Submit Paper
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="highlights">
+            <h2 class="section-title">Conference Highlights</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Publication Opportunity</h3>
+                    <p>Selected papers with extended versions will be considered for publication in Peer-Reviewed / Scopus-Indexed Journals.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-award"></i></div>
+                    <h3>Best Paper Awards</h3>
+                    <p>Cash prizes for outstanding contributions: 1st Prize: ₹5,000 | 2nd Prize: ₹3,000 | 3rd Prize: ₹2,000</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h3>Hybrid Mode</h3>
+                    <p>Participate online on March 25, 2026 or attend on-campus on March 26, 2026 at Gojan School of Business and Technology, Chennai.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="dates">
+            <h2 class="section-title">Important Dates</h2>
+            <div class="data-grid">
+                <div class="date-card">
+                    <span class="date-label">Paper Submission Deadline</span>
+                    <span class="date-value">February 14, 2026</span>
+                </div>
+                <div class="date-card">
+                    <span class="date-label">Paper Acceptance Notification</span>
+                    <span class="date-value">February 20, 2026</span>
+                </div>
+                <div class="date-card important">
+                    <span class="date-label">Early-Bird Registration Closes</span>
+                    <span class="date-value">February 25, 2026</span>
+                </div>
+                <div class="date-card">
+                    <span class="date-label">Late Registration Closes</span>
+                    <span class="date-value">March 20, 2026</span>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-bottom: 20px; color: var(--primary-color);">Conference Dates</h3>
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                <div style="text-align: center; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); min-width: 200px;">
+                    <div style="font-size: 1.2rem; color: var(--accent-color); font-weight: bold;">March 25, 2026</div>
+                    <div style="font-size: 1.5rem; color: var(--primary-color); font-weight: bold;"<i class="fas fa-laptop"></i>ONLINE</div>
+                   
+                </div>
+                <div style="text-align: center; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); min-width: 200px;">
+                    <div style="font-size: 1.2rem; color: var(--accent-color); font-weight: bold;">March 26, 2026</div>
+                    <div style="font-size: 1.5rem; color: var(--primary-color); font-weight: bold;"<i class="fas fa-university"></i>ON-CAMPUS</div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="registration">
+            <h2 class="section-title">Registration Fee (Early Bird)</h2>
+            <div class="registration-details">
+                <p style="text-align: center; margin-bottom: 30px; color: #666;">Registration fee per team (Maximum 3 authors)</p>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Indian Participants (INR)</th>
+                            <th>Foreign Participants (USD)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>UG and PG Students</td>
+                            <td>₹300 + ₹300</td>
+                            <td>$50 + $10</td>
+                        </tr>
+                        <tr>
+                            <td>Faculty and Researchers</td>
+                            <td>₹1500</td>
+                            <td>$100</td>
+                        </tr>
+                        <tr>
+                            <td>Industry Professionals</td>
+                            <td>₹2500</td>
+                            <td>$180</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="background-color: #f0f4ff; padding: 25px; border-radius: 10px; margin-top: 40px; border-left: 4px solid var(--primary-color);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-info-circle"></i> Registration & Payment Details
+                    </h3>
+                    
+                    <div class="payment-info">
+                        <div class="payment-method">
+                            <h4><i class="fas fa-mobile-alt"></i> UPI Payment</h4>
+                            <p><strong>UPI ID:</strong> vips-tech.bizabiz9043@yesbankltd</p>
+                            <p><strong>Phone Number:</strong> 99621 06567</p>
+                        </div>
+                        <div class="payment-method">
+                            <h4><i class="fas fa-university"></i> Bank Transfer</h4>
+                            <p><strong>Account Name:</strong> VIPS TECH</p>
+                            <p><strong>Account Number:</strong> 102361900000003033</p>
+                            <p><strong>IFSC Code:</strong> YESB0000023</p>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 20px; padding: 15px; background-color: white; border-radius: 5px; font-size: 0.95rem;">
+                        <strong>Note:</strong> After payment, please fill the registration form and send the payment receipt to <a href="mailto:icrtet2025@gsbt.edu.in" style="color: var(--primary-color); text-decoration: underline;">icrtet2025@gsbt.edu.in</a>
+                    </p>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6Gab3a61aIXIdHbJMlvdZ_0877IHdR7biR-7QZ_MCU3o0Rw/viewform" class="btn btn-primary" target="_blank" style="background-color: var(--accent-color); color: var(--dark-color); font-size: 1.1rem; padding: 15px 35px;">
+                            <i class="fas fa-link"></i> Registration Link
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards">
+            <h2 class="section-title">Best Paper Awards</h2>
+            <div class="registration-details" style="text-align: center;">
+                <p>We are excited to announce the Best Paper Awards for outstanding contributions in research, innovation, and technical excellence.</p>
+                <table class="price-table" style="max-width: 500px; margin: 30px auto;">
+                    <thead>
+                        <tr>
+                            <th>Award</th>
+                            <th>Cash Prize</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1st Prize Award</td>
+                            <td>₹5,000</td>
+                        </tr>
+                        <tr>
+                            <td>2nd Prize Award</td>
+                            <td>₹3,000</td>
+                        </tr>
+                        <tr>
+                            <td>3rd Prize Award</td>
+                            <td>₹2,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="call-for-papers">
+            <h2 class="section-title">Call for Papers</h2>
+            <div class="registration-details">
+                <p style="text-align: center; margin-bottom: 40px;">Original research is invited from all areas of engineering and technology. Contributions emphasizing novel approaches, future trends, and cross-disciplinary innovations are strongly encouraged.</p>
+                
+                <div class="committee-list" style="margin-bottom: 30px;">
+                    <div class="committee-member">
+                        <h4><i class="fas fa-flask"></i> Section 1 - Science</h4>
+                        <ul style="list-style: none; margin-top: 10px;">
+                            <li>Chemical Sciences</li>
+                            <li>Physical Sciences</li>
+                            <li>Life Sciences</li>
+                            <li>Mathematics & Statistics</li>
+                            <li>Environmental Science</li>
+                            <li>Social Science</li>
+                        </ul>
+                    </div>
+                    <div class="committee-member">
+                        <h4><i class="fas fa-cog"></i> Section 2 - Engineering & Technology</h4>
+                        <ul style="list-style: none; margin-top: 10px;">
+                            <li>AI, Machine Learning & Big Data</li>
+                            <li>Cybersecurity & Blockchain Technologies</li>
+                            <li>Electronics, Communication & Embedded Systems</li>
+                            <li>Robotics, AR/VR & Human-Computer Interaction</li>
+                            <li>Advanced Manufacturing & Robotics</li>
+                            <li>Next Generation Computing & IT Innovations</li>
+                            <li>Green Energy, Sustainability & Smart City Technologies</li>
+                            <li>Healthcare, Pharma & Biomedical Engineering</li>
+                        </ul>
+                    </div>
+                    <div class="committee-member">
+                        <h4><i class="fas fa-chart-line"></i> Section 3 - Management</h4>
+                        <ul style="list-style: none; margin-top: 10px;">
+                            <li>Marketing</li>
+                            <li>Entrepreneurship</li>
+                            <li>Commerce</li>
+                            <li>Foreign Trade</li>
+                            <li>Logistics</li>
+                            <li>Business Economics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="text-align: center; border-top: 1px solid #eee; padding-top: 30px;">
+                    <img src="qr.png" alt="Scan for Abstract Format" style="width: 250px; height: 250px; margin: 10px auto; display: block; border-radius: 8px;">
+                    <p style="margin-top: 10px; font-weight: bold; font-size: 0.9rem;">Scan to download abstract template</p>
+                   
+                </div>
+            </div>
+        </section>
+
+        <section id="committees" style="background-color: #e8ecf3;">
+            <h2 class="section-title">Conference Committees</h2>
+            <div class="committee-tabs">
+                <button class="tab-btn active" data-tab="patrons">Chief Patrons & Patrons</button>
+                <button class="tab-btn" data-tab="advisory">Advisory Committee</button>
+                <button class="tab-btn" data-tab="organizing">Organizing Committee</button>
+                <button class="tab-btn" data-tab="international">International Advisory</button>
+            </div>
+
+            <div id="patrons" class="tab-content active">
+                <div class="committee-list">
+                    <div class="committee-member">
+                        <h4>Dr. Natarajan G</h4>
+                        <p>Founder Chairman</p>
+                    </div>
+                    <div class="committee-member">
+                        <h4>Mrs. Brindha Natarajan</h4>
+                        <p>Chairperson</p>
+                    </div>
+                    <div class="committee-member">
+                        <h4>Mr. Viswanathan N</h4>
+                        <p>Vice-Chairman</p>
+                    </div>
+                    <div class="committee-member">
+                        <h4>Dr. Selvakumar C</h4>
+                        <p>Principal</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="advisory" class="tab-content">
+                <div class="committee-list">
+                    <div class="committee-member">
+                        <h4>Dr. Lakshmi Narayanan S</h4>
+                        <p>Professor / ECE</p>
+                    </div>
+                    <div class="committee-member">
+                        <h4>Dr. Christopher M</h4>
+                        <p>Professor / MBA</p>
+                    </div>
+                    <div class="committee-member">
+                        <h4>Dr. Sahish Kumar G</h4>
+                        <p>Associate Professor / IT</p>
+                    </div>
+                    <div class="committee-member">
+                        <h4>Dr. Joseph Robinson M</h4>
+                        <p>Assistant Professor / H&S</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="organizing" class="tab-content">
+                <div class="committee-list">
+                    <div class="committee-member">
+                        <h4>Dr. Nafeez Ahmed I</h4>
+                        <p>Conference Chair, Director - R&D</p>
+                        <p><i class="fas fa-phone"></i> Mobile: 98613 34743</p>
+                    </div>
+                    <div class="committee-member">
+                        <h4>Mr. Dev Anand D</h4>
+                        <p>Founder & CEO, VIPS.Tech</p>
+                        <p><i class="fas fa-phone"></i> Mobile: 99621 06567</p>
+                    </div>
+                    <div class="committee-member">
+                        <h4>Mr. Lokesh K</h4>
+                        <p>Co-Founder & Managing Director, VIPS.Tech</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="international" class="tab-content">
+                <div class="committee-list">
+                    <div class="committee-member">
+                        <h4>Dr. Sabarinathan Palaniyappan</h4>
+                        <p>Postdoctoral Researcher, King Fahd University of Petroleum and Minerals, Saudi Arabia</p>
+                    </div>
+                    <div class="committee-member">
+                        <h4>Dr. Ramu S</h4>
+                        <p>Debre Tabor University, Ethiopia</p>
+                    </div>
+                    <div class="committee-member">
+                        <h4>Mr. Shubham Malhotra</h4>
+                        <p>Software Engineering, New York</p>
+                    </div>
+                    <div class="committee-member">
+                        <h4>Mr. Muhammad Saqib</h4>
+                        <p>Delivery Consultant at Amazon, Texas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">About</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-university"></i></div>
+                    <h3>About Organizing Institute</h3>
+                    <p>Gojan School of Business and Technology has been operating since 2005-2006. The Institution is approved by AICTE, New Delhi, affiliated with Anna University, Chennai, and accredited by NAAC. Offers 14 UG and 5 PG programs across multiple disciplines.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>About Associate Partner</h3>
+                    <p>VIPS.Tech is an innovation-driven organization providing solutions in AI/ML, cloud computing, data science, enterprise systems, web and mobile development, and UI/UX design, with a strong focus on high-impact journal research and scholarly publications.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>About The Conference</h3>
+                    <p>The International Conference on Recent Trends in Engineering and Technology (ICRTET-2026) serves as a key global platform for researchers, academicians, industry professionals, and scholars to discuss the latest advancements and emerging trends.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <ul class="contact-info">
+                    <li>
+                        <div class="contact-icon"><i class="fas fa-user-tie"></i></div>
+                        <span><strong>Conference Chair:</strong><br>Dr. Nafees Ahmed I<br>Director - R&D, Gojan School of Business and Technology</span>
+                    </li>
+                    <li>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <span><strong>Phone:</strong><br>Mobile: 98613 34743</span>
+                    </li>
+                    <li>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <span><strong>Email:</strong><br>icrtet2026@gsbt.edu.in</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Organizing Partner</h3>
+                <ul class="contact-info">
+                    <li>
+                        <div class="contact-icon"><i class="fas fa-user-tie"></i></div>
+                        <span><strong>Mr. Dev Anand D</strong><br>Founder & CEO, VIPS.Tech</span>
+                    </li>
+                    <li>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <span><strong>Phone:</strong><br>Mobile: 99421 06567</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Important Links</h3>
+                <ul class="contact-info">
+                    <li>
+                        <div class="contact-icon"><i class="fas fa-edit"></i></div>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6Gab3a61aIXIdHbJMlvdZ_0877IHdR7biR-7QZ_MCU3o0Rw/viewform" style="color: white; text-decoration: underline;">Registration Link</a>
+                    </li>
+                    <li>
+                        <div class="contact-icon"><i class="fas fa-file-download"></i></div>
+                        <a href="https://access.one/u/icrtet_format" style="color: white; text-decoration: underline;">Abstract Format</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Venue</h3>
+                <ul class="contact-info">
+                    <li>
+                        <div class="contact-icon"><i class="fas fa-university"></i></div>
+                        <span><strong>Gojan School of Business and Technology</strong><br>Channel, Tamil Nadu</span>
+                    </li>
+                    <li>
+                        <div class="contact-icon"><i class="fas fa-wallet"></i></div>
+                        <span><strong>UPI ID:</strong><br>vips.tech.biccl.id15904@paytmhash3id</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2026 ICRTET-2026. All rights reserved.</p>
+            <p>Jointly Organized by Department of Research and Development, Gojan School of Business and Technology and VIPS.Tech.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality for committees section
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Submit Paper Button - Open Email Client
+            document.getElementById('submitPaperBtn').addEventListener('click', function() {
+                const subject = encodeURIComponent('Paper Submission for ICRTET-2026');
+                const body = encodeURIComponent('Dear Team,\n\nI would like to submit my paper for ICRTET-2026. \n\nTitle: \nAuthors: \nAffiliation: \n\nAttached: Full Paper\n\nThank you.');
+                window.location.href = `mailto:icrtet2026@gsbt.edu.in?subject=${subject}&body=${body}`;
+            });
+
+            // Generate QR Code
+            try {
+                new QRCode(document.getElementById("qrcode"), {
+                    text: "upi://pay?pa=vips.tech.biccl.id15904@paytmhash3id&pn=VIPS TECH&am=&cu=INR",
+                    width: 150,
+                    height: 150,
+                    colorDark : "#1a237e",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+            } catch (err) {
+                console.log("QR Code generation error:", err);
+            }
+        });
+    </script>
+</body>
+</html>
