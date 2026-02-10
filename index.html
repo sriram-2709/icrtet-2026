@@ -477,11 +477,168 @@
             color: #888;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 25px 30px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            line-height: 1;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26, 35, 126, 0.3);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .error-message {
+            display: none;
+            background-color: #f44336;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero h2 { font-size: 1.8rem; }
             .header-container { flex-direction: column; text-align: center; gap: 15px; }
             .logo-section { flex-direction: column; gap: 5px; }
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+            }
+            .modal-body {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -522,9 +679,9 @@
             </div>
 
             <div class="cta-buttons">
-                <a href="#registration" class="btn btn-primary">
+                <button id="registerBtn" class="btn btn-primary">
                     <i class="fas fa-user-plus"></i> Register Now
-                </a>
+                </button>
                 <button id="submitPaperBtn" class="btn btn-secondary">
                     <i class="fas fa-paper-plane"></i> Submit Paper
                 </button>
@@ -927,6 +1084,42 @@ Jointly Organized by Department of RESEARCH AND DEVELOPMENT, Gojan School of Bus
 © 2026 ICRTET-2026. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-plus"></i> Registration Form</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="successMessage" class="success-message">
+                    <i class="fas fa-check-circle"></i> Registration successful! We'll contact you soon.
+                </div>
+                <div id="errorMessage" class="error-message">
+                    <i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again.
+                </div>
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact"><i class="fas fa-phone"></i> Contact Number *</label>
+                        <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required pattern="[0-9]{10,15}">
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Submit Registration
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Tab functionality for committees section
         document.addEventListener('DOMContentLoaded', function() {
@@ -985,6 +1178,134 @@ Jointly Organized by Department of RESEARCH AND DEVELOPMENT, Gojan School of Bus
             } catch (err) {
                 console.log("QR Code generation error:", err);
             }
+
+            // Modal functionality
+            const modal = document.getElementById('registrationModal');
+            const registerBtn = document.getElementById('registerBtn');
+            const closeBtn = document.querySelector('.close');
+            const form = document.getElementById('registrationForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Open modal
+            registerBtn.addEventListener('click', function() {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close modal
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Handle form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Hide previous messages
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+                
+                // Disable submit button
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                
+                // Get form data
+                const formData = new FormData(form);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const contact = formData.get('contact');
+                
+                // Create URL with parameters
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxczxmSg1WZWadpLBr4ltbIbclvBgjmR0OKpHJvM9SqTzmCg5-PN9gPVgSDqbOJC7AK/exec';
+                
+                // Method 1: Try with fetch POST JSON
+                fetch(scriptURL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        contact: contact
+                    }),
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8',
+                    }
+                })
+                .then(response => {
+                    console.log('Success!', response);
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    form.reset();
+                    
+                    // Track conversion with Meta Pixel
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'Lead', {
+                            content_name: 'ICRTET-2026 Registration',
+                            content_category: 'Conference Registration'
+                        });
+                    }
+                    
+                    // Close modal after 2 seconds
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                        successMessage.style.display = 'none';
+                    }, 2000);
+                })
+                .catch(error => {
+                    console.error('Error!', error);
+                    // Try alternative method with FormData
+                    const formDataToSend = new FormData();
+                    formDataToSend.append('name', name);
+                    formDataToSend.append('email', email);
+                    formDataToSend.append('contact', contact);
+                    
+                    fetch(scriptURL, {
+                        method: 'POST',
+                        body: formDataToSend
+                    })
+                    .then(response => {
+                        console.log('Success with FormData!', response);
+                        successMessage.style.display = 'block';
+                        form.reset();
+                        
+                        if (typeof fbq !== 'undefined') {
+                            fbq('track', 'Lead', {
+                                content_name: 'ICRTET-2026 Registration',
+                                content_category: 'Conference Registration'
+                            });
+                        }
+                        
+                        setTimeout(() => {
+                            modal.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                            successMessage.style.display = 'none';
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Both methods failed:', err);
+                        errorMessage.style.display = 'block';
+                    })
+                    .finally(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Registration';
+                    });
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Registration';
+                });
+            });
         });
     </script>
 </body>
